@@ -1,0 +1,21 @@
+<h1>Our fancy blog articles</h1>
+<% @articles.each do |article| %>
+  <div class="row post-content">
+    <h2 class="entry-title">
+      <%= link_to article do %>
+        <%= article.title %>
+      <% end %>
+    </h2>
+    <p class="entry-date">
+      <%=article.created_at%>
+    </p>
+    <div class="entry-content">
+      <%= article.body %>
+    </div>
+    <div class="comments">
+      <%= link_to article do %>
+        (<%= article.comments.count %> коментариев | Комментировать)
+      <% end %>
+    </div>
+  </div>
+<% end %>

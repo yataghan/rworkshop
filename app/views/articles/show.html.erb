@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row post-content">
+  <h2 class="entry-title">
+    <%= @article.title %>
+  </h2>
+  <p class="entry-date">
+    <%= @article.created_at %>
+  </p>
+  <div class="entry-content">
+    <%= @article.body %>
+  </div>
+
+  <div class="pull-right">
+    <%= link_to 'Edit', edit_article_path(@article) %> |
+    <%= link_to 'Delete', @article, method: :delete, data: { confirm: 'Are you sure?' } %> |
+    <%= link_to 'Back', articles_path %>
+  </div>
+</div>
+
+<%= render template: "comments/index"%>
+<%= render template: "comments/new" %>

@@ -1,0 +1,17 @@
+<h3 class="text-center">Комментарии(<%=@comments.count%>)</h3>
+
+<% @comments.each do |comment| %>
+  <div class="comment-params clearfix comment-border">
+    <div class="comment-header">
+      <strong>Author:</strong> <%= comment.user_name %>
+      <br>
+      <strong>Date:</strong> <%= comment.created_at %>
+    </div>
+    <div class="comment-body">
+      <%= comment.body %>
+    </div>
+
+    <%=link_to 'Delete', comment, method: :delete, class: "pull-right", data: { confirm: 'Are you sure?' } %>
+  </div>
+<% end %>
+
